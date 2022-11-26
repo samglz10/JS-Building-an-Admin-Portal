@@ -4,10 +4,17 @@ const app =express()
 //ENV entry Point
 require('dotenv').config()
 //Body Parser for JSON
+const books = require('./db.json')
 app.use(express.json())
 
+//Main page
 app.get('/', (req,res)=>{
     res.send("Server up!")
+})
+
+app.get('/books', (req, res)=> {
+    //res.send("Books here!")
+    res.json(books)
 })
 
 // Listen for connections.
